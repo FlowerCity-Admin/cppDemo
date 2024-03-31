@@ -1,50 +1,40 @@
+/*
+ * @Author: snake qzrobotsnake@gmail.com
+ * @Date: 2024-03-16 07:52:49
+ * @LastEditors: snake qzrobotsnake@gmail.com
+ * @LastEditTime: 2024-03-31 13:49:51
+ * @FilePath: \cppDemo\src\main.cpp
+ */
 #include <iostream>
 using namespace std;
-char s[3010];
-int n, p, q;
 int main()
 {
-    cin >> n;
-    for (int i = 1; i <= n; i++)
-        cin >> s[i];
-    int a = 1;
-    int b = n;
-    for (int i = 1; i <= n; i++)
+    int T;
+    cin >> T;
+    while (T--)
     {
-        for (int j = i; j <= i + 79 && j <= n; j++)
-        {
-            if (s[a] == s[b])
-            {
-                p = a;
-                q = b;
-                while (s[p] == s[q])
-                {
-                    p++;
-                    q--;
-                }
-                if (s[p] <= s[q])
-                {
-                    cout << s[a++];
-                }
-                else
-                {
-                    cout << s[b--];
-                }
-            }
-            else
-            {
-                if (s[a] > s[b])
-                {
-                    cout << s[b--];
-                }
-                else
-                {
-                    cout << s[a++];
-                }
-            }
-        }
-        i += 79;
-        cout << endl;
+        int a;
+        cin >> a;
+        if (a >= 0 && a < 64)
+            cout << 1 << endl;
+        else if (a < 128)
+            cout << 1 << endl;
+        else if (a < 192)
+            cout << 0 << endl;
+        else if (a < 256)
+            cout << 1 << endl;
+        else if (a < 320)
+            cout << 0 << endl;
+        else if (a < 384)
+            cout << 1 << endl;
+        else if (a < 448)
+            cout << 0 << endl;
+        else if (a < 512)
+            cout << 1 << endl;
     }
     return 0;
 }
+/*
+64
+
+*/
