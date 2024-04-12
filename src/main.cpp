@@ -2,39 +2,37 @@
  * @Author: snake qzrobotsnake@gmail.com
  * @Date: 2024-03-16 07:52:49
  * @LastEditors: snake qzrobotsnake@gmail.com
- * @LastEditTime: 2024-03-31 13:49:51
+ * @LastEditTime: 2024-04-06 08:45:10
  * @FilePath: \cppDemo\src\main.cpp
  */
 #include <iostream>
 using namespace std;
+
 int main()
 {
-    int T;
-    cin >> T;
-    while (T--)
+    long long x, n;
+    cin >> x >> n;
+    long long target = 1LL << n;
+    long long l = 0, r = 1e9;
+    while (l < r)
     {
-        int a;
-        cin >> a;
-        if (a >= 0 && a < 64)
-            cout << 1 << endl;
-        else if (a < 128)
-            cout << 1 << endl;
-        else if (a < 192)
-            cout << 0 << endl;
-        else if (a < 256)
-            cout << 1 << endl;
-        else if (a < 320)
-            cout << 0 << endl;
-        else if (a < 384)
-            cout << 1 << endl;
-        else if (a < 448)
-            cout << 0 << endl;
-        else if (a < 512)
-            cout << 1 << endl;
+        long long mid = (l + r) / 2;
+        if (x * (1 - pow(x ^ 2 / 4, mid)) / (1 - x ^ 2 / 4) >= target)
+        {
+            r = mid;
+        }
+        else
+        {
+            l = mid + 1;
+        }
+    }
+    if (x * (1 - pow(x ^ 2 / 4, l)) / (1 - x ^ 2 / 4) >= target)
+    {
+        cout << l << endl;
+    }
+    else
+    {
+        cout << "inf" << endl;
     }
     return 0;
 }
-/*
-64
-
-*/
